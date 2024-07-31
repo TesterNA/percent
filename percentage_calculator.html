@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .calculator {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .result {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Percentage Calculator</h2>
+        <input type="number" id="number" placeholder="Enter number" />
+        <input type="number" id="percent" placeholder="Enter percent" />
+        <button onclick="calculate()">Calculate</button>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        function calculate() {
+            const number = parseFloat(document.getElementById('number').value);
+            const percent = parseFloat(document.getElementById('percent').value);
+            if (isNaN(number) || isNaN(percent)) {
+                document.getElementById('result').innerText = 'Please enter valid numbers';
+                return;
+            }
+            const result = (number * percent / 100).toFixed(2);
+            document.getElementById('result').innerText = `Result: ${result}`;
+        }
+    </script>
+</body>
+</html>
